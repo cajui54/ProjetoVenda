@@ -18,6 +18,7 @@ namespace ProjetoVenda
             produtos.Add(new Produto(1003, "Sofá de três lugares", 2000 ));
             produtos.Add(new Produto(1004,"Mesa retangular",1500));
             produtos.Add(new Produto(1005, "Mesa retangular", 2000));
+            produtos.Sort();
 
             while(opcao != 5)
             {

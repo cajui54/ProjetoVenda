@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoVenda.Dominio
 {
-    class Produto
+    class Produto : IComparable
     {
         public int codigo { get; set; }
         public string descricao { get; set; }
@@ -21,6 +21,24 @@ namespace ProjetoVenda.Dominio
         public override string ToString()
         {
             return "Codigo: "+ codigo +" ,Descrição: "+ descricao +" ,Preço R$: "+preco.ToString("F2");
+        }
+
+        public int CompareTo(object obj)
+        {
+            Produto outro = (Produto)obj;
+            int resultado = descricao.CompareTo(outro.descricao); // se retornar 0 os objetos são iguais 
+
+            if(resultado != 0)
+            {
+                return resultado;
+            }
+            else
+            {
+                return -preco.CompareTo(outro.preco);
+                // - descrecente
+
+            }
+
         }
 
     }
