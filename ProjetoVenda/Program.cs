@@ -38,6 +38,7 @@ namespace ProjetoVenda
                         Tela.mostrarProdutos();
                          break;
                     case 2:
+                        Tela.cadastrarProduto();
                         break;
                     case 3:
                         break;

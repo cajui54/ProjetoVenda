@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjetoVenda.Dominio;
 
 namespace ProjetoVenda
 {
@@ -31,6 +32,20 @@ namespace ProjetoVenda
 
             }
             Console.ReadLine();
+
+        }
+        public static void cadastrarProduto()
+        {
+            Console.WriteLine("Digite os dados do produto:");
+            Console.Write("Código: ");
+            int codigo = int.Parse(Console.ReadLine());
+            Console.Write("Descrição: ");
+            string descricao = Console.ReadLine();
+            Console.Write("Preço R$:");
+            double preco = double.Parse(Console.ReadLine());
+            Produto produto = new Produto(codigo, descricao, preco);
+            Program.produtos.Add(produto);
+            Program.produtos.Sort();
 
         }
 
