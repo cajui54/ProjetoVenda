@@ -9,7 +9,9 @@ namespace ProjetoVenda
 {
     class Program
     {
-        public static List<Produto> produtos = new List<Dominio.Produto>();
+        public static List<Produto> produtos = new List<Produto>();
+        public static List<Pedido> pedidos = new List<Pedido>();
+
         static void Main(string[] args)
         {
             int opcao = 0;
@@ -38,11 +40,16 @@ namespace ProjetoVenda
                         Tela.mostrarProdutos();
                          break;
                     case 2:
-                        Tela.cadastrarProduto();
+                        try{Tela.cadastrarProduto();}
+                        catch (Exception error){Console.WriteLine("Erro inesperado: "+error.Message); }                       
                         break;
                     case 3:
+                        try{Tela.cadastrarPedido(); }
+                        catch (ModelException error) { Console.WriteLine("Erro inesperado: "+error.Message); }
                         break;
                     case 4:
+                        try { Tela.mostrarPedido(); }
+                        catch(ModelException error) { Console.WriteLine("Erro inesperado: " + error.Message); }
                         break;
                     case 5:
                         Console.WriteLine("Fim do Programa!");
